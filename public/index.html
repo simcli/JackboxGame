@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Jackbox App</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <script src="js/classes/Client.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <!-- place navbar here -->
+    </header>
+
+    <main>
+      <div
+        class="modal fade"
+        id="usernameModal"
+        data-backdrop="static"
+        data-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Please Enter Username!
+              </h5>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label"
+                    >Username:</label
+                  >
+                  <input type="text" class="form-control" id="recipient-name" />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                id="usernameModalBtn"
+                type="button"
+                class="btn btn-primary">
+                Send message
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="lobby" class="container text-center mt-5">
+        <div class="row">
+          <label class="col-3" for="roundSelect">Select number of rounds:</label>
+          <select class="col-2" id="roundSelect">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+        <!-- Title -->
+        <h1 class="mb-4">Game Lobby</h1>
+
+        <!-- Dots for players -->
+        <div class="dots-container">
+          <!-- Generate 10 dots -->
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div id="usernames">
+          <!-- Display usernames -->
+        </div>
+        <div class="container">
+          <h1>Live Chat</h1>
+          <div class="chat p-1"></div>
+          <div>
+            <input
+              id="chatInput"
+              autocomplete="off"
+              placeholder="Type your message here..." />
+            <button id="btnSendChat">Send</button>
+          </div>
+        </div>
+
+        <div class="btn btn-primary d-none my-2" id="btnStartGame"></div>
+      </div>
+      <div id="promptRound" class="d-none container text-center mt-5">
+        <div id="timer">
+          <progress value="0" max="45" id="pbar"></progress>
+          <p id="counting">45</p>
+        </div>
+        <button id="btnSendBlank">Enter Blank</button>
+        <input
+          id="blankInput"
+          autocomplete="off"
+          placeholder="Type your message here..." />
+        <button id="btnSubmitPrompt">Submit Prompt</button>
+      </div>
+      <div id="answersRound" class="d-none container text-center mt-5">
+        <div id="promptBox" class="row my-2">
+          <!-- Generate 3 answer options -->
+          <table id="promptTable">
+            <tr>
+              <td>Some Text</td>
+            </tr>
+            <tr>
+              <td>Some Text</td>
+            </tr>
+            <tr>
+              <td>Some Text</td>
+            </tr>
+          </table>
+        </div>
+        <div
+          id="promptSelection"
+          class="row text-center bg bg-warning d-inline-flex p-2">
+          <!-- This shows the answer selection -->
+          Choose a prompt to finish!
+        </div>
+        <br />
+        <br />
+        <input
+          type="text"
+          id="answerInput"
+          autocomplete="off"
+          placeholder="Fill in the blank..." />
+        <button id="btnSubmitAnswer">Submit Answer</button>
+      </div>
+      <div id="votingRound" class="mx-auto d-none container text-center mt-5">
+        <h1 id="voteCounter" class="row mt-5 mx-3">
+          Votes left:<span id="numVotes" class="col-1">???</span>
+        </h1>
+        <form id="voteBox" class="row mx-auto mt-5">
+          <blockquote
+            id="votingBox1"
+            class="border border-solid mx-3 p-5 col-5 blockquote">
+            Heres some text to be received by the server
+          </blockquote>
+          <blockquote
+            id="votingBox2"
+            class="border border-solid mx-3 p-5 col-5 blockquote">
+            Heres some text to be received by the server
+          </blockquote>
+          <blockquote
+            id="votingBox3"
+            class="border border-solid mx-3 p-5 col-5 blockquote d-none">
+            Heres some text to be received by the server
+          </blockquote>
+        </form>
+      </div>
+      <div id="scoreRound" class="d-none">
+        <div id="scoreTimer"></div>
+        <progress value="0" max="10" id="scorepbar"></progress>
+        <table id="scoreTable" class="border border-solid mx-3"></table>
+      </div>
+    </main>
+
+    <footer>
+      <!-- place footer here -->
+    </footer>
+
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="js/classes/Client.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/frontend.js"></script>
+  </body>
+</html>

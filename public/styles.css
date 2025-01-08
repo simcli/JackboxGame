@@ -1,0 +1,55 @@
+.dot {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
+}
+.dots-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+table {
+    margin-top: 1rem;
+}
+
+table,
+td,
+th {
+    border: solid thin gray;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    padding: 10px;
+}
+
+th {
+    background-color: #555;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    border: #555;
+}
+
+td:not(:nth-child(3)),
+th:not(:nth-child(3)) {
+    text-align: center;
+}
+
+tr:not(.selected):hover {
+    background-color: #eee;
+}
+
+blockquote:hover {
+    background-color: #eee;
+}
+
+span {
+    display: inline;
+}
